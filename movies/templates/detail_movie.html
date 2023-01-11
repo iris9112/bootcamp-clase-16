@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Movies section-->
+<section class="bg-light" id="detail">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h1>{{ movie.title }}</h1><br><br>
+                <div class="row gx-12 justify-content-center">
+                    <div class="col-sm-4 lead"><b>Año:</b> {{ movie.released_year }}</div>
+                    <div class="col-sm-4 lead"><b>Duración:</b> {{ movie.runtime }} min</div>
+                    <div class="col-sm-4 lead"><b>Calificación:</b> {% if movie.certificate %} {{ movie.certificate|upper }} {% else %} Other {% endif %}</div>
+                </div>
+                <br><br>
+            </div>
+            <div class="col-lg-8">
+                <h2>Resumen</h2>
+                <p class="lead">{{ movie.overview }}</p>
+                <br>
+
+                <h3>Generos</h3>
+                <p class="lead">
+                    {% for g in movie.genre.all %}
+                    {{ g }}<br>
+                    {% endfor %}
+                </p><br>
+
+                <h3>Director</h3>
+                <p class="lead">{{ movie.director }}</p><br>
+
+                <h3>Actores</h3>
+                <p class="lead">{{ movie.actores.all }}</p><br>
+
+                <h3>Total recaudado</h3>
+                <p class="lead">${{ movie.gross }}</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

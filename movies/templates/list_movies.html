@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="about">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>Listado de Peliculas</h2>
+                <p class="lead">Aquí vas a encontrar las 1000 peliculas con mejor calificacion de todos los tiempos:</p>
+                <br><br>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Año Lanzamiento</th>
+                        <th scope="col">Raiting IMDB</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for movie in movies %}
+                        <tr>
+                            <th scope="row">{{ movie.id }}</th>
+                            <td><a href="{% url 'detail_movie' movie.id %}">{{ movie }}</a></td>
+                            <td>{{ movie.released_year }}</td>
+                            <td>{{ movie.rating }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

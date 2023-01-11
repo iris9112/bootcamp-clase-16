@@ -1,0 +1,298 @@
+digraph model_graph {
+  // Dotfile by Django-Extensions graph_models
+  // Created: 2023-01-11 02:28
+  // Cli Options: movies
+
+  fontname = "Arial"
+  fontsize = 12
+  splines  = true
+  rankdir = "TB"
+
+  node [
+    fontname = "Arial"
+    fontsize = 12
+    shape = "plaintext"
+  ]
+
+  edge [
+    fontname = "Arial"
+    fontsize = 12
+  ]
+
+  // Labels
+
+
+  movies_models_Genre [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#051626">
+    <FONT FACE="Arial" COLOR="#5acc86" POINT-SIZE="14"><B>
+    Genre
+    </B></FONT></TD></TR>
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial"><B>BigAutoField</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Arial">created</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Arial">DateTimeField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">CharField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Arial">updated</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Arial">DateTimeField</FONT>
+    </TD></TR>
+
+
+    </TABLE>
+    >]
+
+  movies_models_Director [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#051626">
+    <FONT FACE="Arial" COLOR="#5acc86" POINT-SIZE="14"><B>
+    Director
+    </B></FONT></TD></TR>
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial"><B>user_pk</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial"><B>OneToOneField (id)</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Arial">created</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Arial">DateTimeField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">full_name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">CharField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Arial">updated</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Arial">DateTimeField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">years_experience</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">SmallIntegerField</FONT>
+    </TD></TR>
+
+
+    </TABLE>
+    >]
+
+  movies_models_Actor [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#051626">
+    <FONT FACE="Arial" COLOR="#5acc86" POINT-SIZE="14"><B>
+    Actor
+    </B></FONT></TD></TR>
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial"><B>user_pk</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial"><B>OneToOneField (id)</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">country_origin</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">CharField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Arial">created</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Arial">DateTimeField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">full_name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">CharField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Arial">updated</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Arial">DateTimeField</FONT>
+    </TD></TR>
+
+
+    </TABLE>
+    >]
+
+  movies_models_Movie [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#051626">
+    <FONT FACE="Arial" COLOR="#5acc86" POINT-SIZE="14"><B>
+    Movie
+    </B></FONT></TD></TR>
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial"><B>BigAutoField</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial"><B>director</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial"><B>ForeignKey (user_pk)</B></FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">certificate</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">CharField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Arial">created</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Arial">DateTimeField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">gross</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">PositiveIntegerField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">overview</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">TextField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">rating</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">SmallIntegerField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">released_year</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">IntegerField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">runtime</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">IntegerField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Arial">title</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Arial">CharField</FONT>
+    </TD></TR>
+
+
+
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Arial">updated</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Arial">DateTimeField</FONT>
+    </TD></TR>
+
+
+    </TABLE>
+    >]
+
+
+
+
+  // Relations
+  django_contrib_auth_models_User [label=<
+  <TABLE BGCOLOR="white" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+  <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="#1b563f">
+  <FONT FACE="Arial" POINT-SIZE="12" COLOR="white">User</FONT>
+  </TD></TR>
+  </TABLE>
+  >]
+  movies_models_Director -> django_contrib_auth_models_User
+  [label=" multi-table\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
+  django_contrib_auth_models_User [label=<
+  <TABLE BGCOLOR="white" BORDER="0" CELLBORDER="0" CELLSPACING="0">
+  <TR><TD COLSPAN="2" CELLPADDING="4" ALIGN="CENTER" BGCOLOR="#051626">
+  <FONT FACE="Arial" POINT-SIZE="14" COLOR="#5acc86"> User</FONT>
+  </TD></TR>
+  </TABLE>
+  >]
+  movies_models_Actor -> django_contrib_auth_models_User
+  [label=" multi-table\ninheritance"] [arrowhead=empty, arrowtail=none, dir=both];
+
+  movies_models_Movie -> movies_models_Director
+  [label=" director (movie)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  movies_models_Movie -> movies_models_Genre
+  [label=" genre (get_genres)"] [arrowhead=dot arrowtail=dot, dir=both];
+
+  movies_models_Movie -> movies_models_Actor
+  [label=" actores (get_actores)"] [arrowhead=dot arrowtail=dot, dir=both];
+
+
+}

@@ -1,0 +1,16 @@
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.egg-info
+*.mo
+*.pyc
+*.swp
+runserver.sh
+dist/
+node_modules/
+venv/
+*/media/
+*/project/settings_local.py
+*/static/
+db.sqlite3
