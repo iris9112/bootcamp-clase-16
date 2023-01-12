@@ -5,7 +5,7 @@ from .models import Movie
 class MoviesList(ListView):
     model = Movie
     ordering = '-rating'
-    paginate_by = 500
+    paginate_by = 100
     template_name = 'list_movies.html'
     context_object_name = 'movies'  # object_list
 

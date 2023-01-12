@@ -28,18 +28,19 @@ class Director(models.Model):
         ordering = ["-created"]
 
     def __str__(self):
-        return self.full_name
+        return f"{self.full_name} - {self.years_experience}"
 
 
 class Actor(models.Model):
     full_name = models.CharField(max_length=100, null=False, blank=False, verbose_name="Nombre Completo")
     country_origin = models.CharField(max_length=100, null=True, blank=True, verbose_name="País Origen")
+    email = models.EmailField(blank=True)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de edición")
 
     class Meta:
         verbose_name = "Actor"
-        verbose_name_plural = "Actores"
+        verbose_name_plural = "Mis Actores"
         ordering = ["full_name"]
 
     def __str__(self):

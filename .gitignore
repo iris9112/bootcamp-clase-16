@@ -12,5 +12,4 @@ node_modules/
 venv/
 */media/
 */project/settings_local.py
-*/static/
 db.sqlite3
