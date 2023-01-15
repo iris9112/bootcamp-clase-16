@@ -25,6 +25,8 @@
                             <td>{{ movie.released_year }}</td>
                             <td>{{ movie.rating }}</td>
                         </tr>
+                    {% empty %}
+                        <p>No hay peliculas disponibles.</p>
                     {% endfor %}
                     </tbody>
                 </table>

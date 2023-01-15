@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+
+<!-- Director section-->
+<section class="bg-light" id="director">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h1>{{ object.full_name}}</h1><br><br>
+            </div>
+            <div class="col-lg-8">
+                <h2>Biografia</h2>
+                <p class="lead">{{ object.biographic }}</p>
+                <br>
+
+                <h3>Años de Experiencia</h3>
+                <p class="lead">{{ object.years_experience }}</p><br>
+
+                {% if object.movies %}
+                <h3>Peliculas ({{ object.movies.count }})</h3>
+                {% for movie in object.movies.all %}
+                <ul>
+                    <!-- Primera forma que usamos para generar una url que va al detalle de un objeto -->
+                    <!-- <a href="{% url 'detail_movie' movie.id %}">{{ movie }}</a> -->
+                    <li><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></li>
+                </ul>
+                {% endfor %}
+                {% else %}
+                <p class="lead">No hay peliculas disponibles.</p>
+                {% endif %}
+
+                <h3>Peli más exitosa</h3>
+                <p class="lead">{{ best_movie.title }}</p>
+                <p class="lead">$ {{ best_movie.gross|intcomma }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

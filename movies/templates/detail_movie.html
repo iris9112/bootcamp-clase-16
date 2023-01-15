@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load humanize %}
+
 {% block content %}
 
 <!-- Movies section-->
@@ -27,13 +29,13 @@
                 </p><br>
 
                 <h3>Director</h3>
-                <p class="lead">{{ movie.director }}</p><br>
+                <p class="lead"> <a href="{% url 'detail_director' movie.director.id %}">{{ movie.director.full_name }}</a></p><br>
 
                 <h3>Actores</h3>
                 <p class="lead">{{ movie.actores.all }}</p><br>
 
                 <h3>Total recaudado</h3>
-                <p class="lead">${{ movie.gross }}</p>
+                <p class="lead">${{ movie.gross|intcomma }}</p>
             </div>
 
         </div>
