@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section id="about">
+<section id="home" class="py-5">
     <div class="container px-4">
         <div class="row gx-4 justify-content-center">
             <div class="col-lg-8">
@@ -19,14 +19,16 @@
                     </thead>
                     <tbody>
                     {% for movie in movies %}
-                        <tr>
-                            <th scope="row">{{ movie.id }}</th>
-                            <td><a href="{% url 'detail_movie' movie.id %}">{{ movie }}</a></td>
-                            <td>{{ movie.released_year }}</td>
-                            <td>{{ movie.rating }}</td>
-                        </tr>
+                    <tr>
+                        <th scope="row">{{ movie.id }}</th>
+                        <!-- Primera forma que usamos para generar una url que va al detalle de un objeto -->
+                        <!-- <a href="{% url 'detail_movie' movie.id %}">{{ movie }}</a> -->
+                        <td><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></td>
+                        <td>{{ movie.released_year }}</td>
+                        <td>{{ movie.rating }}</td>
+                    </tr>
                     {% empty %}
-                        <p>No hay peliculas disponibles.</p>
+                    <p>No hay peliculas disponibles.</p>
                     {% endfor %}
                     </tbody>
                 </table>
