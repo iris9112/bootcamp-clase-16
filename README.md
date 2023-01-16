@@ -13,6 +13,7 @@ App de prueba
 - Ejecuta migraciones (y crear base de datos) `python manage.py migrate`
 - Crea un super usuario `python manage.py createsuperuser`
 - Cargar backup `python manage.py loaddata docs/db.json`
+- Corriendo las pruebas `python manage.py test -v 2n`
 
 
 ## Ejercicios
@@ -23,7 +24,7 @@ App de prueba
 
 - Para cada actor, listar 3 peliculas en las que haya participado.
 
-- Por cada genero, obtener el nombre de la película con mayor Recaudo. 
+- Por cada género, obtener el nombre de la película con mayor Recaudo. 
 
 
 ### Recursos
