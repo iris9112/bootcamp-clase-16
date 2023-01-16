@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="home" class="py-5">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>Listado de directores</h2>
+                <br>
+                {% if user.is_authenticated %}
+                    <h3 class="bg-light"><a href="{% url 'create_director' %}">Crear Director</a></h3>
+                    <br><br>
+                {% endif %}
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Años de Experiencia</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for director in object_list %}
+                    <tr>
+                        <th scope="row">{{ director.id }}</th>
+                        <td><a href="{{ director.get_absolute_url }}">{{ director }}</a></td>
+                        <td>{{ director.years_experience }}</td>
+                    </tr>
+                    {% empty %}
+                        <p>No hay directores disponibles.</p>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

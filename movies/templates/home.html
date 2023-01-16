@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="home" class="py-5">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>Informacion</h2>
+                <p class="lead"><a href="{% url 'list_movies' %}">Listado de Peliculas</a></p>
+                <p class="lead"><a href="{% url 'list_actors' %}">Listado de Actores</a></p>
+                <p class="lead"><a href="{% url 'list_directors' %}">Listado de Directores</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

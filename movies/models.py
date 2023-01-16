@@ -32,10 +32,7 @@ class Director(models.Model):
         return f"{self.full_name} - {self.years_experience}"
 
     def get_absolute_url(self):
-        """
-         Devuelve la url para acceder a una instancia particular del modelo.
-        """
-        return reverse('detail_director', args=[str(self.id)])
+        return reverse("detail_director", args=[str(self.id)])
 
     @property
     def movies(self):
@@ -60,24 +57,33 @@ class Actor(models.Model):
     def __str__(self):
         return self.full_name
 
+    def get_absolute_url(self):
+        return reverse("detail_director", args=[str(self.id)])
+
 
 class Movie(models.Model):
     TYPE_CERTIFICATE = [
-        ('u', 'U'),
-        ('a', 'A'),
-        ('ua', 'UA'),
-        ('r', 'R'),
-        ('pg-13', 'PG-13'),
-        ('other', 'Other'),
+        ("u", "U"),
+        ("a", "A"),
+        ("ua", "UA"),
+        ("r", "R"),
+        ("pg-13", "PG-13"),
+        ("other", "Other"),
     ]
 
     title = models.CharField(max_length=150, null=False, blank=False, verbose_name="Título")
     overview = models.TextField(null=True, blank=True, verbose_name="Resumen")
     released_year = models.IntegerField(null=True, blank=True, verbose_name="Año lanzamiento")
-    certificate = models.CharField(max_length=6, choices=TYPE_CERTIFICATE, null=True, blank=True, verbose_name="Certificado")
+    certificate = models.CharField(
+        max_length=6,
+        choices=TYPE_CERTIFICATE,
+        null=True,
+        blank=True,
+        verbose_name="Certificado",
+    )
     runtime = models.IntegerField(help_text="Duración de la película en minutos", verbose_name="Duración")
     genre = models.ManyToManyField(Genre, related_name="get_genres", verbose_name="Genero")
-    rating = models.FloatField(default=1.0, null=True,verbose_name="Raiting IMDB")
+    rating = models.FloatField(default=1.0, null=True, verbose_name="Raiting IMDB")
     director = models.ForeignKey(Director, on_delete=models.SET_NULL, null=True)
     actores = models.ManyToManyField(Actor, related_name="get_actores")
     gross = models.PositiveIntegerField(default=0, verbose_name="Recaudo")
@@ -93,7 +99,7 @@ class Movie(models.Model):
         return f"{self.title}: {self.released_year}"
 
     def get_absolute_url(self):
-        return reverse('detail_movie', args=[str(self.id)])
+        return reverse("detail_movie", args=[str(self.id)])
 
     def get_brochure(self):
         msg = f"La película {self.title}: "

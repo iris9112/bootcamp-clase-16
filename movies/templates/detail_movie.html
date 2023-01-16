@@ -8,15 +8,20 @@
     <div class="container px-4">
         <div class="row gx-4 justify-content-center">
             <div class="col-lg-8">
-                <h1>{{ movie.title }}</h1><br><br>
+                <h1>{{ movie.title }}</h1><br>
+                {% if user.is_authenticated %}
+                    <h3 class="bg-light"><a href="{% url 'update_movie' movie.id %}">Actualizar</a></h3>
+                    <h3 class="bg-light"><a href="{% url 'delete_movie' movie.id %}">Eliminar</a></h3>
+                    <br><br>
+                {% endif %}
+            </div>
+            <div class="col-lg-8">
                 <div class="row gx-12 justify-content-center">
                     <div class="col-sm-4 lead"><b>Año:</b> {{ movie.released_year }}</div>
                     <div class="col-sm-4 lead"><b>Duración:</b> {{ movie.runtime }} min</div>
                     <div class="col-sm-4 lead"><b>Calificación:</b> {% if movie.certificate %} {{ movie.certificate|upper }} {% else %} Other {% endif %}</div>
                 </div>
                 <br><br>
-            </div>
-            <div class="col-lg-8">
                 <h2>Resumen</h2>
                 <p class="lead">{{ movie.overview }}</p>
                 <br>

@@ -8,7 +8,12 @@
     <div class="container px-4">
         <div class="row gx-4 justify-content-center">
             <div class="col-lg-8">
-                <h1>{{ object.full_name}}</h1><br><br>
+                <h1>{{ object.full_name }}</h1><br>
+                {% if user.is_authenticated %}
+                    <h3 class="bg-light"><a href="{% url 'update_director' object.id %}">Actualizar</a></h3>
+                    <h3 class="bg-light"><a href="{% url 'delete_director' object.id %}">Eliminar</a></h3>
+                    <br><br>
+                {% endif %}
             </div>
             <div class="col-lg-8">
                 <h2>Biografia</h2>
@@ -19,21 +24,23 @@
                 <p class="lead">{{ object.years_experience }}</p><br>
 
                 {% if object.movies %}
-                <h3>Peliculas ({{ object.movies.count }})</h3>
-                {% for movie in object.movies.all %}
-                <ul>
-                    <!-- Primera forma que usamos para generar una url que va al detalle de un objeto -->
-                    <!-- <a href="{% url 'detail_movie' movie.id %}">{{ movie }}</a> -->
-                    <li><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></li>
-                </ul>
-                {% endfor %}
+                    <h3>Peliculas ({{ object.movies.count }})</h3>
+                    {% for movie in object.movies.all %}
+                        <ul>
+                            <!-- Primera forma que usamos para generar una url que va al detalle de un objeto -->
+                            <!-- <a href="{% url 'detail_movie' movie.id %}">{{ movie }}</a> -->
+                            <li><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></li>
+                        </ul>
+                    {% endfor %}
+                    <br>
+
+                    <h3>Peli más exitosa</h3>
+                    <p class="lead">{{ best_movie.title }} - ${{ best_movie.gross|intcomma }}</p>
+
                 {% else %}
-                <p class="lead">No hay peliculas disponibles.</p>
+                    <p class="lead">No hay peliculas disponibles.</p>
                 {% endif %}
 
-                <h3>Peli más exitosa</h3>
-                <p class="lead">{{ best_movie.title }}</p>
-                <p class="lead">$ {{ best_movie.gross|intcomma }}</p>
             </div>
         </div>
     </div>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section id="home" class="py-5">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+            <div class="col-lg-8">
+                <h2>Listado de Actores</h2>
+                <br>
+                {% if user.is_authenticated %}
+                    <h3 class="bg-light"><a href="/">Crear Actor</a></h3>
+                {% endif %}
+                <br><br>
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Pais Origen</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for actor in object_list %}
+                    <tr>
+                        <th scope="row">{{ actor.id }}</th>
+                        <td><!-- a href="{{ actor.get_absolute_url }}"-->{{ actor }}</td>
+                        <td>{{ actor.country_origin }}</td>
+                    </tr>
+                    {% empty %}
+                        <p>No hay actores disponibles.</p>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
